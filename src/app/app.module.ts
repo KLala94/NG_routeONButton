@@ -17,12 +17,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
+import { IdComponent } from './id/id.component';
+import { RoutePipe } from './route.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     BannerComponent,
     ItemsListComponent,
-    FooterComponent
+    FooterComponent,
+    IdComponent,
+    RoutePipe
   ],
   imports: [
     BrowserModule,

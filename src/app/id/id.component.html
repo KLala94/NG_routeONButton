@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let Item of Items |route:Item | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+    <div >
+      <h1>{{Item.title}}</h1>
+      <p>Item.text</p>
+    </div>
+  </li>
+</ul>
