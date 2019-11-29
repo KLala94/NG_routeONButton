@@ -1,0 +1,9 @@
+<div id="body">
+  <ul>
+    <li *ngFor="let Item of Items | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+      <h1>{{Item.title}}</h1>
+      <a class="btn" [routerLink]="['/home', Item.ID]" (click)="write(Item)">Go to Text</a>
+    </li>
+  </ul>
+</div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
