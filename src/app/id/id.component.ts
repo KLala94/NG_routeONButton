@@ -1,28 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { ItemsListComponent } from '../items-list/items-list.component';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { ItemArray } from '../item';
+import { Array } from './Array';
 @Component({
   selector: 'app-id',
-  templateUrl: './id.component.html',
+  template: `
+  <div >
+    <h1>{{Item.title}}</h1>
+    <p>{{Item.text}}</p>
+  </div>
+
+`,
   styleUrls: ['./id.component.scss']
 })
 export class IdComponent implements OnInit {
-
-  Items: string[] | any;
+  Item: ItemArray;
   constructor(private httpService: HttpClient, private router: Router, private AR: ActivatedRoute) { }
   p: number = 1;
   ngOnInit() {
-     this.httpService.get('./assets/ItemsArray.json').subscribe(
-      data => {
-        this.Items = data as string[];	 // FILL THE ARRAY WITH DATA.
-      },
-      (err: HttpErrorResponse) => {
-        console.log(err.message);
-      }
-    );
+
+     this.AR.params.subscribe((p)=>{
+          let id = p['id']
+          let result = Array.filter.call(Array,(v)=>v.ID == id)
+          if (result.length > 0) {
+            this.Item = result[0]
+          }
+      })
 
   }
   routeid(i){

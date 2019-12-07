@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 })
 export class RoutePipe implements PipeTransform {
   constructor( private router: Router) { }
-  transform(value: any, ...args: any[]): any {
-    return value === this.router.url;
+  transform(value: any[], ...args: any[]): any {
+    return value[1].ID === this.router.url;
   }
 
 }
