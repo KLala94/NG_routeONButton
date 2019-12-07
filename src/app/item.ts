@@ -1,4 +1,4 @@
-export interface ItemArray {
+export interface ItemInterface {
 
     ID: number;
    title: string;

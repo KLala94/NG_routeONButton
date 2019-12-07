@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ItemsListComponent } from '../items-list/items-list.component';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { ItemArray } from '../item';
+import { ItemInterface } from '../item';
 import { Array } from './Array';
 @Component({
   selector: 'app-id',
@@ -18,7 +18,7 @@ import { Array } from './Array';
   styleUrls: ['./id.component.scss']
 })
 export class IdComponent implements OnInit {
-  Item: ItemArray;
+  Item: ItemInterface;
   constructor(private httpService: HttpClient, private router: Router, private AR: ActivatedRoute) { }
   p: number = 1;
   ngOnInit() {

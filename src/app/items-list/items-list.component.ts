@@ -12,28 +12,20 @@ import { Router } from '@angular/router';
 export class ItemsListComponent implements OnInit {
 
 
-  Items = Array;
+  Items: any[];
 
   constructor(private httpService: HttpClient, private router: Router, private AR: ActivatedRoute) { }
   p = 1;
   ngOnInit() {
-    //  this.httpService.get('./assets/ItemsArray.json').subscribe(
-    //   data => {
-    //     this.Items = data as string[];	 // FILL THE ARRAY WITH DATA.
-    //   },
-    //   (err: HttpErrorResponse) => {
-    //     console.log(err.message);
-    //   }
-    // );
+     this.httpService.get('./assets/ItemsArray.json').subscribe(
+      data => {
+        this.Items = data as string[];	 // FILL THE ARRAY WITH DATA.
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
 
-  }
-  write(i) {
-    // tslint:disable-next-line: max-line-length
-    document.write(`<h2>', i.title, '</h2>',
-         '<p style="color: black;
-         width:80%; text-align: justify;
-         background-color: greenyellow;
-         font-size: 30px; text-align: center;">', i.text, '</p>`);
   }
 }
 
